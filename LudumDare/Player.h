@@ -1,28 +1,24 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <SFML/System/Vector2.hpp>
+#include "precompiled.h"
 
 class Player
 {
 public:
-	sf::Vector2f position;
-	sf::Vector2f velocity;
-	sf::Vector2f orient;
+	Vector position;
+	Vector velocity;
+	Vector direction;
 
 	Player()
-		:position(sf::Vector2f(0,0))
-		,velocity(sf::Vector2f(0,0))
-		,orient(sf::Vector2f(0,0))
+		:position(Vector(10,10))
+		,velocity(Vector(1,1))
+		,direction(Vector(0.5,0.1))
 	{}
 
-	Player(sf::Vector2f position)
-		:position(position)
-		,velocity(sf::Vector2f(0,0))
-		,orient(sf::Vector2f(0,0))
-	{}
+	void update();
 
-
+	// controls
 	void rotateLeft();
 	void rotateRight();
 	void accelerate();

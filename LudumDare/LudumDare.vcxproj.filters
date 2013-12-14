@@ -14,6 +14,9 @@
     <Filter Include="Source Files\Player">
       <UniqueIdentifier>{d47076ad-45d5-43e4-990a-8157d2f6bff0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\math">
+      <UniqueIdentifier>{5755ff24-ee1f-45d4-9466-eb38401f4f31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -38,6 +41,12 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Source Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec2.h">
+      <Filter>Source Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="precompiled.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

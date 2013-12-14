@@ -21,13 +21,23 @@ int main(){
 		{
 			if(event.type == sf::Event::Closed)
 				window.close();
+
+			//Keys that are input
+			if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+				scene->getPlayer()->rotateRight();
+
+			if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+				scene->getPlayer()->rotateRight();
+
+			if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+				scene->getPlayer()->accelerate();
 		}
+
+		scene->update();
 
 		window.clear();
 
 		render->update();
-
-		--scene->getPlayer()->position.x;
 
 		window.display();
 

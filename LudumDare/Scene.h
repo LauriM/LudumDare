@@ -11,6 +11,8 @@ private:
 public:
 	Scene() {}
 
+	void update();
+
 	/* Getters & setters */
 
 	Player* getPlayer()

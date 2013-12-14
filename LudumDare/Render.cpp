@@ -11,9 +11,7 @@ void Render::background()
 	shape.setFillColor(sf::Color::White);
 
 	//get reference coordinate
-
-	sf::Vector2f pos = scene->getPlayer()->position;
-
+	sf::Vector2f pos(scene->getPlayer()->position.x,scene->getPlayer()->position.y);
 
 	for(int x = 0; x < 100; ++x)
 	{
