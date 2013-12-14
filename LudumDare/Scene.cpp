@@ -4,7 +4,7 @@ Scene::Scene()
 {
 	//Generate the world on launch
 
-	int count = randomRange(50,100);
+	int count = PLANET_COUNT;
 
 	Planet *tempPlanet ;
 
