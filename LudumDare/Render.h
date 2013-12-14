@@ -11,13 +11,17 @@ public:
 	Render(sf::RenderWindow *window,Scene *scene)
 		:window(window)
 		,scene(scene)
-	{}
+	{
+		view = sf::View(sf::FloatRect(0,0,800,600));
+		window->setView(view);
+	}
 
 	bool init();
 
 	void update();
 
 private:
+	sf::View view;
 	sf::RenderWindow *window;
 	Scene *scene;
 
