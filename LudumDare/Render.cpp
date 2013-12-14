@@ -8,7 +8,9 @@ bool Render::init()
 {
 	printf("loading resources...\n");
 
-	LOADTEXTURE(texturePlayer, spritePlayer, "../gfx/player.png");
+	LOADTEXTURE(texturePlayer, spritePlayer, "../gfx/ship.png");
+
+	spritePlayer.setOrigin(16,16);
 }
 
 void Render::update()

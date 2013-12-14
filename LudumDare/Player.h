@@ -3,8 +3,8 @@
 
 #include "precompiled.h"
 
-#define PLAYER_ROTATION_SPEED 2.f
-#define PLAYER_ACCEL 2
+#define PLAYER_ROTATION_SPEED 3.f
+#define PLAYER_ACCEL 0.3
 
 class Player
 {

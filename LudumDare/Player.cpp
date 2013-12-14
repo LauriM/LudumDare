@@ -20,10 +20,10 @@ void Player::accelerate()
 
 void Player::rotateLeft()
 {
-	direction.rotate(PLAYER_ROTATION_SPEED);
+	direction.rotate(-PLAYER_ROTATION_SPEED);
 }
 
 void Player::rotateRight()
 {
-	direction.rotate(-PLAYER_ROTATION_SPEED);
+	direction.rotate(PLAYER_ROTATION_SPEED);
 }
