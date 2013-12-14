@@ -17,11 +17,16 @@ void Scene::update()
 
 	for(int i = 0; i < planets.size(); ++i)
 	{
-		//get distance
+		//get distance from player
 		Vector vec = planets[i]->position - player.position;
 
 		int dist = abs( vec.getLenght() );
 		int radius = planets[i]->size;
+
+		//#######################
+		//Planets generate particles!
+		particleSystem.addParticles(1,4,planets[i]->position,0,0,-2,2,radius / 10,radius / 5 + radius / 2, sf::Color::Red);
+		//#######################
 
 		//TODO: Kill player if it collides with a planet, fix the hit detection! the origin is invalid
 		if(dist < radius)

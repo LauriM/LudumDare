@@ -29,7 +29,7 @@ void Render::update()
 	{
 		shape.setFillColor(sf::Color::Red);
 		shape.setRadius(planets->at(i)->size);
-		shape.setOrigin(planets->at(i)->size / 2,planets->at(i)->size / 2);
+		shape.setOrigin(planets->at(i)->size, planets->at(i)->size);
 		shape.setPosition(planets->at(i)->position.getSfml());
 
 		window->draw(shape);
