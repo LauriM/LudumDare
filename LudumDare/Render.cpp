@@ -37,7 +37,7 @@ void Render::update()
 
 	//Draw the player
 	spritePlayer.setPosition(scene->getPlayer()->position.x,scene->getPlayer()->position.y);
-	spritePlayer.setRotation((scene->getPlayer()->direction.getAngle()) * 180/PI);
+	spritePlayer.setRotation((scene->getPlayer()->direction.getAngle()) * 180 / PI);
 
 	window->setView(view);
 	window->draw(spritePlayer);
@@ -48,14 +48,11 @@ void Render::background()
 	sf::CircleShape shape(1.f);
 	shape.setFillColor(sf::Color::White);
 
-	//get reference coordinate
-	sf::Vector2f pos(0,0);
-
-	for(int x = 0; x < 100; ++x)
+	for(int x = 0; x < WORLD_WIDTH; x += 100)
 	{
-		for(int y = 0; y < 100; ++y)
+		for(int y = 0; y < WORLD_HEIGHT; y += 100)
 		{
-			shape.setPosition(100*x + pos.x ,100*y + pos.y);
+			shape.setPosition(x , y);
 			window->draw(shape);
 		}
 	}

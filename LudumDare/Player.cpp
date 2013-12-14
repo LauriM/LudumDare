@@ -13,6 +13,33 @@ void Player::update()
 
 	//printf("Vel: %f,%f\n",velocity.x,velocity.y);
 	printf("Rotation: %f,%f (%f) (%f)\n", direction.x, direction.y, direction.getAngle(), velocity.getLenght());
+
+	//Collisions with the borders
+
+	if(position.x < 0)
+	{
+		position.x = 1;
+		velocity.x = -velocity.x;
+	}
+
+	if(position.x > WORLD_WIDTH)
+	{
+		position.x = WORLD_WIDTH;
+		velocity.x = -velocity.x;
+	}
+
+	if(position.y < 0)
+	{
+		position.y = 1;
+		velocity.y = -velocity.y;
+	}
+
+	if(position.y > WORLD_HEIGHT)
+	{
+		position.y = WORLD_HEIGHT;
+		velocity.y = -velocity.y;
+	}
+
 }
 
 void Player::accelerate()
