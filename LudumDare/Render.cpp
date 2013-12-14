@@ -24,7 +24,7 @@ void Render::update()
 	//center camera to player
 	view.setCenter(scene->getPlayer()->position.x,scene->getPlayer()->position.y);
 	float rotation = scene->getPlayer()->direction.getAngle() * 180 / PI;
-	printf("rot: %f\n",rotation);
+
 	view.setRotation(rotation + 90);
 
 	//Draw planets

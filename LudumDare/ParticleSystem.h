@@ -25,7 +25,12 @@ private:
 public:
 	ParticleSystem() {}
 
-	void addParticles(int min, int max, Vector position, float direction, int spread, int minSpeed, int maxSpeed, int minTTL, int maxTTL, sf::Color color,int size);
+	void addParticles(int min, int max, Vector position, Vector direction, int spread, int minSpeed, int maxSpeed, int minTTL, int maxTTL, sf::Color color,int size)
+	{
+		addParticles(min, max, position, direction, spread, minSpeed, maxSpeed, minTTL, maxTTL, color,size,Vector(0,0) );
+	}
+
+	void addParticles(int min, int max, Vector position, Vector direction, int spread, int minSpeed, int maxSpeed, int minTTL, int maxTTL, sf::Color color,int size,Vector baseVelocity);
 
 	void render(sf::RenderWindow* window); //handles also updating
 };
