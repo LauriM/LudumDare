@@ -1,6 +1,8 @@
 #ifndef RENDER_H
 #define RENDER_H
 
+#include "precompiled.h"
+
 #include <SFML/Graphics.hpp>
 
 #include "Scene.h"
@@ -13,7 +15,7 @@ public:
 		:window(window)
 		,scene(scene)
 	{
-		view = sf::View(sf::FloatRect(0,0,800,600));
+		view = sf::View(sf::FloatRect(0,0,SCREEN_WIDTH,SCREEN_HEIGHT));
 		window->setView(view);
 	}
 

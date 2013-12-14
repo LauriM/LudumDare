@@ -15,7 +15,7 @@ int main(){
 	printf("Hello world");
 	srand(time(NULL));
 
-	sf::RenderWindow window(sf::VideoMode(800,600,32), "Ludum");
+	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH ,SCREEN_HEIGHT ,32), "Ludum");
 
 	Scene *scene = new Scene();
 

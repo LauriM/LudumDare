@@ -7,3 +7,6 @@
 typedef Vec2<float> Vector;
 
 #define USE_PARTICLESYSTEM extern ParticleSystem particleSystem;
+
+#define SCREEN_WIDTH 1000
+#define SCREEN_HEIGHT 800
