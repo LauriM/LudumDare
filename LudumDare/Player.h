@@ -4,7 +4,7 @@
 #include "precompiled.h"
 
 #define PLAYER_ROTATION_SPEED 3.f
-#define PLAYER_ACCEL 0.15
+#define PLAYER_ACCEL 0.10
 
 class Player
 {
@@ -12,11 +12,13 @@ public:
 	Vector position;
 	Vector velocity;
 	Vector direction;
+	int hp;
 
 	Player()
 		:position(Vector(10,10))
 		,velocity(Vector(1,1))
 		,direction(Vector(-0.5,-0.1))
+		,hp(100)
 	{}
 
 	void update();

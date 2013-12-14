@@ -18,17 +18,20 @@ void Scene::update()
 	for(int i = 0; i < planets.size(); ++i)
 	{
 		//get distance
-
 		Vector vec = planets[i]->position - player.position;
 
 		int dist = abs( vec.getLenght() );
-		int size = planets[i]->size;
+		int radius = planets[i]->size;
+
+		//TODO: Kill player if it collides with a planet, fix the hit detection! the origin is invalid
+		if(dist < radius)
+			printf("KILL");
 
 		//if distance is larger than the size, no gravity applies
-		if(dist/GRAVITY_MULTIPLIER > size)
+		if(dist / GRAVITY_MULTIPLIER > radius)
 			continue;
 
-		dist -= size / 2; //gravity "starts" from the surface, not center
+		dist -= radius / 2; //gravity "starts" from the surface, not center
 
 		float str = (dist * GRAVITY_MULTIPLIER) / 10000000.f;
 
