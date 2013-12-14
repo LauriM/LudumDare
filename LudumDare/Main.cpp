@@ -13,6 +13,8 @@ int main(){
 	Scene *scene = new Scene();
 	Render *render = new Render(&window,scene);
 
+	render->init();
+
 	while( window.isOpen() )
 	{
 		sf::Event event;

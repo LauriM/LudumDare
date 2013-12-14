@@ -13,6 +13,8 @@ public:
 		,scene(scene)
 	{}
 
+	void init();
+
 	void update();
 
 private:
@@ -21,6 +23,10 @@ private:
 
 	// Draw the parlax effect to the background
 	void background();
+
+	// Files to be loaded
+
+	sf::Texture texturePlayer;
 };
 
 #endif

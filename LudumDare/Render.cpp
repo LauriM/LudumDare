@@ -1,8 +1,22 @@
 #include "Render.h"
 
+void Render::init()
+{
+	printf("loading resources...");
+
+	if(!texturePlayer.loadFromFile("./gfx/ship.png"))
+	{
+		printf("error loading resources!");
+	}
+}
+
 void Render::update()
 {
 	background();
+
+	//Draw the player
+
+
 }
 
 void Render::background()
