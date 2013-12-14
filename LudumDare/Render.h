@@ -13,7 +13,7 @@ public:
 		,scene(scene)
 	{}
 
-	void init();
+	bool init();
 
 	void update();
 

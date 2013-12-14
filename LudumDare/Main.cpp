@@ -13,7 +13,8 @@ int main(){
 	Scene *scene = new Scene();
 	Render *render = new Render(&window,scene);
 
-	render->init();
+	if(!render->init())
+		return 1;
 
 	while( window.isOpen() )
 	{

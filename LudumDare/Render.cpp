@@ -1,13 +1,13 @@
 #include "Render.h"
+#include <iostream>
+#include <fstream>
 
-void Render::init()
+bool Render::init()
 {
 	printf("loading resources...");
 
-	if(!texturePlayer.loadFromFile("./gfx/ship.png"))
-	{
-		printf("error loading resources!");
-	}
+	if(!texturePlayer.loadFromFile("gfx/ship.png"))
+		return false;
 }
 
 void Render::update()
