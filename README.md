@@ -10,7 +10,7 @@ Ideas / todo
 ## ideas
 
 * fuel based gameplay ?
-* high acceleration particle TTL ? 
+* high acceleration particle TTL ?
 * parlax scrolling background ?
 
 ## todo

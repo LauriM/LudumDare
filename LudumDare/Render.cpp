@@ -52,14 +52,46 @@ void Render::update()
 
 void Render::background()
 {
+	Vector offset;
+
 	sf::CircleShape shape(1.f);
 	shape.setFillColor(sf::Color::White);
 
+	//level 1j
+	for(int x = 0; x < WORLD_WIDTH; x += 300)
+	{
+		for(int y = 0; y < WORLD_HEIGHT; y += 300)
+		{
+			shape.setPosition(x , y);
+			window->draw(shape);
+		}
+	}
+
+	//Parlax level 2
 	for(int x = 0; x < WORLD_WIDTH; x += 100)
 	{
 		for(int y = 0; y < WORLD_HEIGHT; y += 100)
 		{
-			shape.setPosition(x , y);
+			offset = scene->getPlayer()->position;
+			offset.x -= WORLD_WIDTH / 2;
+			offset.y -= WORLD_HEIGHT / 2;
+
+			shape.setPosition(x + offset.x * 0.2, y + offset.y * 0.2);
+			window->draw(shape);
+		}
+	}
+
+	//Parlax level 3
+	offset;
+	for(int x = 0; x < WORLD_WIDTH; x += 150)
+	{
+		for(int y = 0; y < WORLD_HEIGHT; y += 150)
+		{
+			offset = scene->getPlayer()->position;
+			offset.x -= WORLD_WIDTH / 2;
+			offset.y -= WORLD_HEIGHT / 2;
+
+			shape.setPosition(x + offset.x * 0.1, y + offset.y * 0.1);
 			window->draw(shape);
 		}
 	}
