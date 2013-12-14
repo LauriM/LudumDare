@@ -1,6 +1,6 @@
 #include "ParticleSystem.h"
 
-#include "Random.h"
+extern int randomRange(int min, int max);
 
 //part system is global
 ParticleSystem particleSystem;

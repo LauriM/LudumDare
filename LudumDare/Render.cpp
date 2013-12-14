@@ -11,6 +11,8 @@ bool Render::init()
 	LOADTEXTURE(texturePlayer, spritePlayer, "../gfx/ship.png");
 
 	spritePlayer.setOrigin(16,16);
+
+	return true;
 }
 
 void Render::update()

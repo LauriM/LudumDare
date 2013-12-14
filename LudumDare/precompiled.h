@@ -6,6 +6,8 @@
 
 typedef Vec2<float> Vector;
 
+int randomRange(int min,int max);
+
 #define USE_PARTICLESYSTEM extern ParticleSystem particleSystem;
 
 #define SCREEN_WIDTH 1000

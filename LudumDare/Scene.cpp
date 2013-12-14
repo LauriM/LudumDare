@@ -4,11 +4,18 @@ Scene::Scene()
 {
 	//Generate the world on launch
 
-	Planet *tempPlanet = new Planet(Vector(200,200), 100);
-	Planet *tempPlanet2 = new Planet(Vector(500,800), 150);
+	int count = randomRange(50,100);
 
-	planets.push_back(tempPlanet);
-	planets.push_back(tempPlanet2);
+	Planet *tempPlanet ;
+
+	while(count > 0)
+	{
+		tempPlanet = new Planet( Vector( randomRange(0,WORLD_WIDTH), randomRange(0,WORLD_HEIGHT) ), randomRange(50,250 ) ) ;
+
+		planets.push_back(tempPlanet);
+
+		--count;
+	}
 }
 
 void Scene::update()
