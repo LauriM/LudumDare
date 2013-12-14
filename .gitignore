@@ -1,13 +1,23 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
+Makefile
+ice.make
+test.make
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
+cscope.out
+tags
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
+gamesave
+testsave
+log.txt
+config.cfg
+
+*.exe
+*.ilk
+*.pdb
+*.opensdf
+
+*.suo
+ipch/
+
+*.dll
+
+Debug/
