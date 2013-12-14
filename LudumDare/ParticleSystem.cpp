@@ -25,6 +25,7 @@ void ParticleSystem::addParticles(int min, int max, Vector position, Vector dire
 				particles[i].ttl = randomRange(minTTL,maxTTL);
 				particles[i].position = position;
 				particles[i].color = color;
+				particles[i].size = size;
 				break;
 			}
 		}
@@ -47,6 +48,7 @@ void ParticleSystem::render(sf::RenderWindow* window)
 
 			//render
 			dot.setFillColor(particles[i].color);
+			dot.setRadius(particles[i].size);
 			dot.setPosition(sf::Vector2f(particles[i].position.x, particles[i].position.y));
 			window->draw(dot);
 		}

@@ -19,6 +19,7 @@ bool Render::init()
 
 void Render::update()
 {
+	bounds();
 	background();
 
 	//center camera to player
@@ -54,7 +55,7 @@ void Render::background()
 {
 	Vector offset;
 
-	sf::CircleShape shape(1.f);
+	sf::CircleShape shape(3.f);
 	shape.setFillColor(sf::Color::White);
 
 	//level 1j
@@ -68,6 +69,7 @@ void Render::background()
 	}
 
 	//Parlax level 2
+	shape.setRadius(2.f);
 	for(int x = 0; x < WORLD_WIDTH; x += 100)
 	{
 		for(int y = 0; y < WORLD_HEIGHT; y += 100)
@@ -82,7 +84,7 @@ void Render::background()
 	}
 
 	//Parlax level 3
-	offset;
+	shape.setRadius(1.f);
 	for(int x = 0; x < WORLD_WIDTH; x += 150)
 	{
 		for(int y = 0; y < WORLD_HEIGHT; y += 150)
@@ -96,3 +98,34 @@ void Render::background()
 		}
 	}
 }
+
+void Render::bounds()
+{
+	sf::RectangleShape shape;
+
+	shape.setSize(sf::Vector2f(10,WORLD_HEIGHT));
+	shape.setPosition(-10,-10);
+	shape.setFillColor(sf::Color::Green);
+
+	window->draw(shape);
+
+	shape.setSize(sf::Vector2f(WORLD_WIDTH,10));
+	shape.setPosition(-10,-10);
+	shape.setFillColor(sf::Color::Green);
+
+	window->draw(shape);
+
+
+	shape.setSize(sf::Vector2f(10,WORLD_HEIGHT));
+	shape.setPosition(WORLD_WIDTH,-10);
+	shape.setFillColor(sf::Color::Green);
+
+	window->draw(shape);
+
+	shape.setSize(sf::Vector2f(WORLD_WIDTH,10));
+	shape.setPosition(-10,WORLD_HEIGHT);
+	shape.setFillColor(sf::Color::Green);
+
+	window->draw(shape);
+}
+

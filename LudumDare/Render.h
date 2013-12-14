@@ -30,6 +30,7 @@ private:
 	Scene *scene;
 
 	// Draw the parlax effect to the background
+	void bounds();
 	void background();
 
 	// Files to be loaded

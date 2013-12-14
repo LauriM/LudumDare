@@ -11,9 +11,10 @@ Ideas / todo
 
 * fuel based gameplay ?
 * high acceleration particle TTL ?
-* parlax scrolling background ?
+* some "random" for the stars?
 
 ## todo
 
 * no planets on top of each other
 * planets have invalid origos
+* new ship model and transparency
