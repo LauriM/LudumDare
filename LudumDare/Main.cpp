@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+#include "Render.h"
+#include "Scene.h"
+
 #include <SFML/Graphics.hpp>
 
 int main(){
@@ -7,8 +10,8 @@ int main(){
 
 	sf::RenderWindow window(sf::VideoMode(800,600), "Ludum");
 
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::White);
+	Scene *scene = new Scene();
+	Render *render = new Render(&window,scene);
 
 	while( window.isOpen() )
 	{
@@ -21,7 +24,11 @@ int main(){
 		}
 
 		window.clear();
-		window.draw(shape);
+
+		render->update();
+
+		--scene->getPlayer()->position.x;
+
 		window.display();
 
 	}
