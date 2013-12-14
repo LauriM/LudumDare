@@ -80,6 +80,11 @@ class Vec2{
 		inline const Vec2 getCrossProduct(){
 			return Vec2<T>(y,-x);
 		}
+
+		inline void rotate(T angle)
+		{
+
+		}
 };
 
 #endif

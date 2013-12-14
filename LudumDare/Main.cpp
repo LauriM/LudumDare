@@ -24,7 +24,7 @@ int main(){
 
 			//Keys that are input
 			if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-				scene->getPlayer()->rotateRight();
+				scene->getPlayer()->rotateLeft();
 
 			if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 				scene->getPlayer()->rotateRight();

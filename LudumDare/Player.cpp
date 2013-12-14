@@ -1,5 +1,8 @@
 #include "precompiled.h"
 
+#include <stdio.h>
+#include <math.h>
+
 #include "Player.h"
 
 void Player::update()
@@ -14,16 +17,8 @@ void Player::accelerate()
 
 void Player::rotateLeft()
 {
-	angle -= PLAYER_ROTATION_SPEED;
-	updateDirection();
 }
 
 void Player::rotateRight()
-{
-	angle += PLAYER_ROTATION_SPEED;
-	updateDirection();
-}
-
-void Player::updateDirection()
 {
 }

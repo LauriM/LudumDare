@@ -3,8 +3,8 @@
 
 #include "precompiled.h"
 
-#define PLAYER_ROTATION_SPEED 2
-#define PLAYER_ACCEL 2
+#define PLAYER_ROTATION_SPEED 2.f
+#define PLAYER_ACCEL 1
 
 class Player
 {
@@ -12,8 +12,6 @@ public:
 	Vector position;
 	Vector velocity;
 	Vector direction;
-
-	float angle; //stores the angle, is converted to direction
 
 	Player()
 		:position(Vector(10,10))
@@ -29,7 +27,6 @@ public:
 	void accelerate();
 
 private:
-	void updateDirection();
 };
 
 #endif
