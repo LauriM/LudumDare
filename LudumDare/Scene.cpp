@@ -47,7 +47,7 @@ void Scene::update()
 
 		float str = (dist * GRAVITY_MULTIPLIER) / 10000000.f;
 
-		printf("# %f #",str);
+		//printf("# %f #",str);
 		if(str < 0)
 			continue;
 

@@ -16,3 +16,4 @@ Ideas / todo
 ## todo
 
 * no planets on top of each other
+* planets have invalid origos

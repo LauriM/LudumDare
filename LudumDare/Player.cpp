@@ -12,7 +12,7 @@ void Player::update()
 	position += velocity;
 
 	//printf("Vel: %f,%f\n",velocity.x,velocity.y);
-	printf("Rotation: %f,%f (%f) (%f)\n", direction.x, direction.y, direction.getAngle(), velocity.getLenght());
+	//printf("Rotation: %f,%f (%f) (%f)\n", direction.x, direction.y, direction.getAngle(), velocity.getLenght());
 
 	//Collisions with the borders
 
