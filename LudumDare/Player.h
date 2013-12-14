@@ -27,6 +27,8 @@ public:
 	void rotateLeft();
 	void rotateRight();
 	void accelerate();
+	void halt();
+	// controls
 
 	void impulse(Vector direction, float force);
 

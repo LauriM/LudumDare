@@ -50,6 +50,9 @@ int main(){
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 			scene->getPlayer()->rotateRight();
 
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+			scene->getPlayer()->halt();
+
 		scene->update();
 
 		window.clear();

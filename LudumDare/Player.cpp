@@ -26,6 +26,12 @@ void Player::accelerate()
 	particleSystem.addParticles(2,5,pos,0,0,-2,2,3,7,sf::Color::Yellow);
 }
 
+void Player::halt()
+{
+	velocity.x = 0;
+	velocity.y = 0;
+}
+
 void Player::impulse(Vector dir, float force)
 {
 	velocity += (dir * force);
