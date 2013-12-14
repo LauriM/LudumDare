@@ -46,6 +46,32 @@ void ParticleSystem::render(sf::RenderWindow* window)
 			particles[i].position += particles[i].velocity;
 			--particles[i].ttl;
 
+			//Collide on the bounds
+
+			if(particles[i].position.x < 0)
+			{
+				particles[i].position.x = 1;
+				particles[i].velocity.x = -particles[i].velocity.x;
+			}
+
+			if(particles[i].position.x > WORLD_WIDTH)
+			{
+				particles[i].position.x = WORLD_WIDTH;
+				particles[i].velocity.x = -particles[i].velocity.x;
+			}
+
+			if(particles[i].position.y < 0)
+			{
+				particles[i].position.y = 1;
+				particles[i].velocity.y = -particles[i].velocity.y;
+			}
+
+			if(particles[i].position.y > WORLD_HEIGHT)
+			{
+				particles[i].position.y = WORLD_HEIGHT;
+				particles[i].velocity.y = -particles[i].velocity.y;
+			}
+
 			//render
 			dot.setFillColor(particles[i].color);
 			dot.setRadius(particles[i].size);

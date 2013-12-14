@@ -18,3 +18,4 @@ Ideas / todo
 * no planets on top of each other
 * planets have invalid origos
 * new ship model and transparency
+* SEPARATE LOGIC FROM FPS
