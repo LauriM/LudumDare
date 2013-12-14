@@ -20,6 +20,9 @@
     <Filter Include="Source Files\ParticleSystem">
       <UniqueIdentifier>{e7611ab0-294a-4e08-9d08-f2e488ee17e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Planet">
+      <UniqueIdentifier>{0818d1c0-2a6a-4695-8561-4e91ac2c9ef9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -36,6 +39,9 @@
     </ClCompile>
     <ClCompile Include="ParticleSystem.cpp">
       <Filter>Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Planet.cpp">
+      <Filter>Source Files\Planet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +65,9 @@
     </ClInclude>
     <ClInclude Include="Random.h">
       <Filter>Source Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="Planet.h">
+      <Filter>Source Files\Planet</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

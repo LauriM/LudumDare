@@ -20,6 +20,21 @@ void Render::update()
 	//center camera to player
 	view.setCenter(scene->getPlayer()->position.x,scene->getPlayer()->position.y);
 
+	//Draw planets
+	PlanetList *planets = scene->getPlanets();
+
+	sf::CircleShape shape(1.f);
+
+	for(int i = 0; i < planets->size(); ++i)
+	{
+		shape.setFillColor(sf::Color::Red);
+		shape.setRadius(planets->at(i)->size);
+		shape.setOrigin(planets->at(i)->size / 2,planets->at(i)->size / 2);
+		shape.setPosition(planets->at(i)->position.getSfml());
+
+		window->draw(shape);
+	}
+
 	//Draw the player
 	spritePlayer.setPosition(scene->getPlayer()->position.x,scene->getPlayer()->position.y);
 	spritePlayer.setRotation((scene->getPlayer()->direction.getAngle()) * 180/PI);

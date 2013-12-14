@@ -3,6 +3,8 @@
 
 #define PI 3.14159265359
 
+#include <SFML/System/Vector2.hpp>
+
 template <typename T>
 class Vec2{
 	public:
@@ -86,6 +88,12 @@ class Vec2{
 		inline const Vec2 getReverse()
 		{
 			return Vec2<T>(-x,-y);
+		}
+
+		//Conver to sfml vector
+		inline sf::Vector2f getSfml()
+		{
+			return sf::Vector2f(x,y);
 		}
 
 		inline void rotate(T angle)

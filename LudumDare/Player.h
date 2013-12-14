@@ -4,7 +4,7 @@
 #include "precompiled.h"
 
 #define PLAYER_ROTATION_SPEED 3.f
-#define PLAYER_ACCEL 0.3
+#define PLAYER_ACCEL 0.15
 
 class Player
 {
@@ -25,6 +25,8 @@ public:
 	void rotateLeft();
 	void rotateRight();
 	void accelerate();
+
+	void impulse(Vector direction, float force);
 
 private:
 };

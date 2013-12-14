@@ -26,6 +26,11 @@ void Player::accelerate()
 	particleSystem.addParticles(2,5,pos,0,0,-2,2,3,7,sf::Color::Yellow);
 }
 
+void Player::impulse(Vector dir, float force)
+{
+	velocity += (dir * force);
+}
+
 void Player::rotateLeft()
 {
 	direction.rotate(-PLAYER_ROTATION_SPEED);
