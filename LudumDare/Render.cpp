@@ -1,13 +1,14 @@
 #include "Render.h"
-#include <iostream>
-#include <fstream>
+
+#include <SFML/Graphics.hpp>
+
+#define LOADTEXTURE(p_var, p_sprite, p_file) if(! p_var.loadFromFile( p_file ) ){ printf("Failed to load texture %s",p_file); return false; } p_sprite.setTexture(p_var);
 
 bool Render::init()
 {
 	printf("loading resources...");
 
-	if(!texturePlayer.loadFromFile("gfx/ship.png"))
-		return false;
+	LOADTEXTURE(texturePlayer, spritePlayer, "../gfx/player.png");
 }
 
 void Render::update()
@@ -15,8 +16,6 @@ void Render::update()
 	background();
 
 	//Draw the player
-
-
 }
 
 void Render::background()

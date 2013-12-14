@@ -27,6 +27,7 @@ private:
 	// Files to be loaded
 
 	sf::Texture texturePlayer;
+	sf::Sprite spritePlayer;
 };
 
 #endif

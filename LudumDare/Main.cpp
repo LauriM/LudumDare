@@ -8,7 +8,7 @@
 int main(){
 	printf("Hello world");
 
-	sf::RenderWindow window(sf::VideoMode(800,600), "Ludum");
+	sf::RenderWindow window(sf::VideoMode(800,600,32), "Ludum");
 
 	Scene *scene = new Scene();
 	Render *render = new Render(&window,scene);
