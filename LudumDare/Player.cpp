@@ -1,8 +1,6 @@
+#include "precompiled.h"
+
 #include "Player.h"
-
-#include <SFML/System/Vector2.hpp>
-
-#include "vectorHelpers.h"
 
 void Player::update()
 {
@@ -11,13 +9,21 @@ void Player::update()
 
 void Player::accelerate()
 {
-	velocity += (direction * 10);
+	velocity += (direction * PLAYER_ACCEL);
 }
 
 void Player::rotateLeft()
 {
+	angle -= PLAYER_ROTATION_SPEED;
+	updateDirection();
 }
 
 void Player::rotateRight()
+{
+	angle += PLAYER_ROTATION_SPEED;
+	updateDirection();
+}
+
+void Player::updateDirection()
 {
 }
