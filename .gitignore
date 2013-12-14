@@ -21,3 +21,5 @@ ipch/
 *.dll
 
 Debug/
+
+*.sdf
