@@ -17,6 +17,9 @@
     <Filter Include="Source Files\math">
       <UniqueIdentifier>{5755ff24-ee1f-45d4-9466-eb38401f4f31}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ParticleSystem">
+      <UniqueIdentifier>{e7611ab0-294a-4e08-9d08-f2e488ee17e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -30,6 +33,9 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystem.cpp">
+      <Filter>Source Files\ParticleSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -47,6 +53,12 @@
     </ClInclude>
     <ClInclude Include="precompiled.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSystem.h">
+      <Filter>Source Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Random.h">
+      <Filter>Source Files\math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

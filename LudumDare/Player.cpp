@@ -5,6 +5,8 @@
 
 #include "Player.h"
 
+USE_PARTICLESYSTEM;
+
 void Player::update()
 {
 	position += velocity;
@@ -16,6 +18,12 @@ void Player::update()
 void Player::accelerate()
 {
 	velocity += (direction * PLAYER_ACCEL);
+
+	//Move the flame behind the ship
+	Vector pos = position - (direction * 20);
+
+	particleSystem.addParticles(2,5,pos,0,0,-2,2,3,7,sf::Color::Red);
+	particleSystem.addParticles(2,5,pos,0,0,-2,2,3,7,sf::Color::Yellow);
 }
 
 void Player::rotateLeft()

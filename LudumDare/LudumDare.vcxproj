@@ -71,13 +71,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Render.cpp" />
     <ClCompile Include="Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="precompiled.h" />
+    <ClInclude Include="Random.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Vec2.h" />

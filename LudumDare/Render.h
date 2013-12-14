@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Scene.h"
+#include "ParticleSystem.h"
 
 class Render 
 {
@@ -23,6 +24,7 @@ public:
 private:
 	sf::View view;
 	sf::RenderWindow *window;
+
 	Scene *scene;
 
 	// Draw the parlax effect to the background

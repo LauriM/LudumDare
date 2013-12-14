@@ -1,3 +1,5 @@
+#include "precompiled.h"
+
 #include <stdio.h>
 
 #include "Render.h"
@@ -7,13 +9,17 @@
 
 #include <SFML/Window/Keyboard.hpp>
 
+USE_PARTICLESYSTEM;
+
 int main(){
 	printf("Hello world");
+	srand(time(NULL));
 
 	sf::RenderWindow window(sf::VideoMode(800,600,32), "Ludum");
 
 	Scene *scene = new Scene();
-	Render *render = new Render(&window,scene);
+
+	Render *render = new Render(&window, scene);
 
 	window.setKeyRepeatEnabled(false);
 
@@ -49,6 +55,8 @@ int main(){
 		window.clear();
 
 		render->update();
+
+		particleSystem.render(&window);
 
 		window.display();
 

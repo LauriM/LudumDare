@@ -83,6 +83,11 @@ class Vec2{
 			return Vec2<T>(y,-x);
 		}
 
+		inline const Vec2 getReverse()
+		{
+			return Vec2<T>(-x,-y);
+		}
+
 		inline void rotate(T angle)
 		{
 			T theta = angle * (PI/180);
