@@ -10,3 +10,5 @@ typedef Vec2<float> Vector;
 
 #define SCREEN_WIDTH 1000
 #define SCREEN_HEIGHT 800
+
+#define GRAVITY_MULTIPLIER 4

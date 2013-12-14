@@ -22,18 +22,22 @@ void Scene::update()
 		Vector vec = planets[i]->position - player.position;
 
 		int dist = abs( vec.getLenght() );
+		int size = planets[i]->size;
 
-		float str = planets[i]->size + (planets[i]->size * 5) - dist;
+		//if distance is larger than the size, no gravity applies
+		if(dist/GRAVITY_MULTIPLIER > size)
+			continue;
 
+		dist -= size / 2; //gravity "starts" from the surface, not center
+
+		float str = (dist * GRAVITY_MULTIPLIER) / 10000000.f;
+
+		printf("# %f #",str);
 		if(str < 0)
-			str = 0;
-
-		str /= 1000000;
-
+			continue;
 
 		//apply force
 		player.impulse(vec,str);
-		printf("# %f #",str);
 	}
 
 	//get player input, apply velocity
