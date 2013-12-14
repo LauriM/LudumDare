@@ -20,7 +20,7 @@ void Render::update()
 
 	//Draw the player
 	spritePlayer.setPosition(scene->getPlayer()->position.x,scene->getPlayer()->position.y);
-	spritePlayer.setRotation(scene->getPlayer()->direction.getAngle());
+	spritePlayer.setRotation((scene->getPlayer()->direction.getAngle()) * 180/PI);
 
 	window->setView(view);
 	window->draw(spritePlayer);
@@ -32,7 +32,7 @@ void Render::background()
 	shape.setFillColor(sf::Color::White);
 
 	//get reference coordinate
-	sf::Vector2f pos(scene->getPlayer()->position.x,scene->getPlayer()->position.y);
+	sf::Vector2f pos(0,0);
 
 	for(int x = 0; x < 100; ++x)
 	{

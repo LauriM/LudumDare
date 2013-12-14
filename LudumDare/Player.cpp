@@ -8,6 +8,9 @@
 void Player::update()
 {
 	position += velocity;
+
+	//printf("Vel: %f,%f\n",velocity.x,velocity.y);
+	printf("Rotation: %f,%f (%f) (%f)\n", direction.x, direction.y, direction.getAngle(), velocity.getLenght());
 }
 
 void Player::accelerate()
@@ -17,8 +20,10 @@ void Player::accelerate()
 
 void Player::rotateLeft()
 {
+	direction.rotate(PLAYER_ROTATION_SPEED);
 }
 
 void Player::rotateRight()
 {
+	direction.rotate(-PLAYER_ROTATION_SPEED);
 }

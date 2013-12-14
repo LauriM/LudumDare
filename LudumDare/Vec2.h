@@ -1,6 +1,8 @@
 #ifndef ENGINE_MATH_VECTOR_H
 #define ENGINE_MATH_VECTOR_H
 
+#define PI 3.14159265359
+
 template <typename T>
 class Vec2{
 	public:
@@ -62,7 +64,7 @@ class Vec2{
 		} 
 
 		inline float getLenght(){
-			return std::sqrt(getSquareLenght());
+			return sqrt(getSquareLenght());
 		}
 
 		inline const Vec2 &normalize(){
@@ -74,7 +76,7 @@ class Vec2{
 		}
 
 		inline float getAngle(){
-			return std::atan2(y,x);
+			return atan2(y,x);
 		}
 
 		inline const Vec2 getCrossProduct(){
@@ -83,7 +85,18 @@ class Vec2{
 
 		inline void rotate(T angle)
 		{
+			T theta = angle * (PI/180);
 
+			T cs = cos(theta);
+			T sn = sin(theta);
+
+			T px,py;
+
+			px = x * cs - y * sn;
+			py = x * sn + y * cs;
+
+			x = px;
+			y = py;
 		}
 };
 
