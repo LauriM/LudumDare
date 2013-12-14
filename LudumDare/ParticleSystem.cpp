@@ -5,7 +5,7 @@ extern int randomRange(int min, int max);
 //part system is global
 ParticleSystem particleSystem;
 
-void ParticleSystem::addParticles(int min, int max, Vector position, float direction, int spread, int minSpeed, int maxSpeed, int minTTL, int maxTTL, sf::Color color)
+void ParticleSystem::addParticles(int min, int max, Vector position, float direction, int spread, int minSpeed, int maxSpeed, int minTTL, int maxTTL, sf::Color color, int size)
 {
 	int count = randomRange(min,max);
 

@@ -14,6 +14,7 @@ struct Particle
 	Vector velocity;
 	int ttl;
 	sf::Color color;
+	int size;
 };
 
 class ParticleSystem
@@ -24,7 +25,7 @@ private:
 public:
 	ParticleSystem() {}
 
-	void addParticles(int min, int max, Vector position, float direction, int spread, int minSpeed, int maxSpeed, int minTTL, int maxTTL, sf::Color color);
+	void addParticles(int min, int max, Vector position, float direction, int spread, int minSpeed, int maxSpeed, int minTTL, int maxTTL, sf::Color color,int size);
 
 	void render(sf::RenderWindow* window); //handles also updating
 };

@@ -32,7 +32,8 @@ void Scene::update()
 
 		//#######################
 		//Planets generate particles!
-		particleSystem.addParticles(1,4,planets[i]->position,0,0,-2,2,radius / 10,radius / 5 + radius / 2, sf::Color::Red);
+		//particleSystem.addParticles(1,4,planets[i]->position,0,0,-2,2,radius / 10,radius / 5 + radius / 2, sf::Color::Red,3);
+		//Disabled because it would "eat" all the avaivable slots with current setup.
 		//#######################
 
 		//TODO: Kill player if it collides with a planet, fix the hit detection! the origin is invalid
@@ -45,7 +46,7 @@ void Scene::update()
 
 		dist -= radius / 2; //gravity "starts" from the surface, not center
 
-		float str = (dist * GRAVITY_MULTIPLIER) / 10000000.f;
+		float str = dist / 1000000.f;
 
 		//printf("# %f #",str);
 		if(str < 0)
