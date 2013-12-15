@@ -5,9 +5,9 @@
 #include "Render.h"
 #include "Scene.h"
 
-#include <SFML/Graphics.hpp>
-
 #include <SFML/Window/Keyboard.hpp>
+
+#include <SFML/Graphics.hpp>
 
 USE_PARTICLESYSTEM;
 

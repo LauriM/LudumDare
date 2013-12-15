@@ -23,7 +23,11 @@ void Render::update()
 	background();
 
 	//center camera to player
-	view.setCenter(scene->getPlayer()->position.x,scene->getPlayer()->position.y);
+	Vector camPos = scene->getPlayer()->position;
+
+	camPos += scene->getPlayer()->direction * 750;
+
+	view.setCenter(camPos.getSfml());
 	float rotation = scene->getPlayer()->direction.getAngle() * 180 / PI;
 
 	view.setRotation(rotation + 90);

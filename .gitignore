@@ -21,5 +21,6 @@ ipch/
 *.dll
 
 Debug/
+Release/
 
 *.sdf
