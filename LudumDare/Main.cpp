@@ -33,6 +33,8 @@ int main(){
 
 	window.setFramerateLimit(60);
 
+	bool zoomStatus = false;
+
 	while( window.isOpen() )
 	{
 		sf::Event event;
@@ -54,6 +56,25 @@ int main(){
 
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
 			scene->getPlayer()->halt();
+
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+			if(zoomStatus == false)
+			{
+				//zoom
+				render->getView()->zoom(2.0);
+				zoomStatus = true;
+			}
+		}
+		else
+		{
+			if(zoomStatus == true)
+			{
+				//unzoom
+				render->getView()->zoom(0.5);
+				zoomStatus = false;
+			}
+		}
 
 		scene->update();
 

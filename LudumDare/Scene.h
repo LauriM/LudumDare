@@ -10,6 +10,7 @@
 
 //typedef PlanetList std::vector<*Planet>;
 typedef std::vector<Planet*> PlanetList;
+typedef std::vector<Entity*> EntityList;
 
 USE_PARTICLESYSTEM;
 
@@ -19,6 +20,7 @@ private:
 	Player player;
 
 	PlanetList planets;
+	EntityList entities;
 
 public:
 	Scene();

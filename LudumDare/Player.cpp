@@ -40,6 +40,18 @@ void Player::update()
 		velocity.y = -velocity.y;
 	}
 
+	if(isZooming == true)
+	{
+		isZooming = false;
+	}
+
+	if(isZooming > 0)
+		--isZooming;
+}
+
+void Player::zoom()
+{
+	isZooming = 3;
 }
 
 void Player::accelerate()

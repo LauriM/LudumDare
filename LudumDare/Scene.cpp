@@ -12,7 +12,7 @@ Scene::Scene()
 	{
 		--count;
 
-		tempPlanet = new Planet( Vector( randomRange(0,WORLD_WIDTH), randomRange(0,WORLD_HEIGHT) ), randomRange(50,250 ) ) ;
+		tempPlanet = new Planet( Vector( randomRange(0,WORLD_WIDTH), randomRange(0,WORLD_HEIGHT) ), randomRange(100,250 ) ) ;
 
 		//Check that the planet is not on top of other planes
 		for( int i = 0; i < planets.size(); ++i)
@@ -61,9 +61,9 @@ void Scene::update()
 
 		dist -= radius / 2; //gravity "starts" from the surface, not center
 
-		float str = dist / 1000000.f;
+		float str = dist / (1000000.f / 0.8);
 
-		//printf("# %f #",str);
+		printf("# %f #\n",str);
 		if(str < 0)
 			continue;
 

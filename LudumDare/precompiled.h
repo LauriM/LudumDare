@@ -16,9 +16,9 @@ int randomRange(int min,int max);
 #define WORLD_WIDTH 5001
 #define WORLD_HEIGHT 5001
 
-#define PLANET_COUNT randomRange(10,20);
+#define PLANET_COUNT randomRange(5,8);
 
-#define GRAVITY_MULTIPLIER 2
+#define GRAVITY_MULTIPLIER 4
 
 #define PLAYER_ROTATION_SPEED 2.f
-#define PLAYER_ACCEL 0.15
+#define PLAYER_ACCEL 0.35

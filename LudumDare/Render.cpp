@@ -12,7 +12,7 @@ bool Render::init()
 
 	spritePlayer.setOrigin(16,16);
 
-	view.zoom(2.0f);
+	view.zoom(3.0f);
 
 	return true;
 }

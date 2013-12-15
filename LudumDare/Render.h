@@ -16,6 +16,7 @@ public:
 	Render(sf::RenderWindow *window,Scene *scene)
 		:window(window)
 		,scene(scene)
+		,zoomStatus(false)
 	{
 		view = sf::View(sf::FloatRect(0,0,SCREEN_WIDTH,SCREEN_HEIGHT));
 		window->setView(view);
@@ -38,7 +39,27 @@ public:
 
 	void update();
 
+	sf::View *getView()
+	{
+		return &view;
+	}
+
+	void toggleZoom()
+	{
+		if(zoomStatus == false)
+		{
+			getView()->zoom(2.0);
+			zoomStatus = true;
+		}
+		if(zoomStatus == false)
+		{
+			getView()->zoom(0.5);
+			zoomStatus = true;
+		}
+	}
+
 private:
+	bool zoomStatus;
 	bool starStatus[STARSTATUS_PRECACHE_SIZE];
 	int starStatusTick;
 
