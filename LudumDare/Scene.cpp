@@ -28,17 +28,18 @@ void Scene::resetScene()
 
 			if(dist < 0){
 				//Hit! break from the loop
-				printf("planet collision!");
 				hit = true;
 			}
 		}
 
 		if(hit)
 		{
+			printf("planet collision!");
 			delete tempPlanet;
 		}
 		else
 		{
+			printf("planet creation");
 			planets.push_back(tempPlanet);
 		}
 
@@ -82,8 +83,11 @@ void Scene::resetScene()
 		}
 		else
 		{
+			printf("|%f %f|\n",ent->position.x,ent->position.y);
 			entities.push_back(ent);
+			printf("|%f %f|\n",ent->position.x,ent->position.y);
 		}
+		printf("|%f %f|\n",ent->position.x,ent->position.y);
 
 		--count;
 		hit = false;
