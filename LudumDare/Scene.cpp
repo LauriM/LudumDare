@@ -30,6 +30,7 @@ void Scene::resetScene()
 			if(dist < 0){
 				//Hit! break from the loop
 				printf("planet collision!");
+				delete tempPlanet;  //Planet is not used.
 				continue;
 			}
 		}
@@ -40,8 +41,35 @@ void Scene::resetScene()
 	//Then add the pickups.
 	count = SCENE_PICKUP_COUNT; //10 pickups
 
+	while( count > 0 )
+	{
+		Entity *ent = new Entity(Vector( randomRange(0,WORLD_WIDTH), randomRange(0,WORLD_HEIGHT)), ENTITYTYPE_PICKUP);
 
-	count = SCENE_FUEL_COUNT; //5 fule
+		//Check that the pickup is not inside a planet
+		for( int i = 0; i < planets.size(); ++i)
+		{
+			Vector vec = ent->position - planets[i]->position;
+			float dist = abs ( vec.getLenght() );
+
+			dist -= planets[i]->size;
+			ent -= 150; //Some space between the planets and pickups...
+
+			if(dist < 0){
+				//Hit! break from the loop
+				printf("planet collision!");
+				delete ent;  //entity is not used
+				continue;
+			}
+		}
+
+		entities.push_back(ent);
+
+		--count;
+	}
+
+	printf("entities.size() : %i \n", entities.size());
+
+	count = SCENE_FUEL_COUNT; //5 fuel
 }
 
 void Scene::update()
