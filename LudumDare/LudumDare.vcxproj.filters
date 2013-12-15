@@ -23,6 +23,9 @@
     <Filter Include="Source Files\Planet">
       <UniqueIdentifier>{0818d1c0-2a6a-4695-8561-4e91ac2c9ef9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Entity">
+      <UniqueIdentifier>{d67c3c9c-509d-4700-b7b3-ae47f0085eec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -68,6 +71,9 @@
     </ClInclude>
     <ClInclude Include="Planet.h">
       <Filter>Source Files\Planet</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Source Files\Entity</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

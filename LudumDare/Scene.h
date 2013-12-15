@@ -5,6 +5,7 @@
 
 #include "Player.h"
 #include "Planet.h"
+#include "Entity.h"
 
 #include <vector>
 
@@ -24,6 +25,8 @@ private:
 
 public:
 	Scene();
+
+	void resetScene();
 
 	void update();
 

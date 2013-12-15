@@ -3,7 +3,11 @@
 Scene::Scene()
 {
 	//Generate the world on launch
+	resetScene();
+}
 
+void Scene::resetScene()
+{
 	int count = PLANET_COUNT;
 
 	Planet *tempPlanet ;
@@ -25,12 +29,19 @@ Scene::Scene()
 
 			if(dist < 0){
 				//Hit! break from the loop
+				printf("planet collision!");
 				continue;
 			}
 		}
 
 		planets.push_back(tempPlanet);
 	}
+
+	//Then add the pickups.
+	count = SCENE_PICKUP_COUNT; //10 pickups
+
+
+	count = SCENE_FUEL_COUNT; //5 fule
 }
 
 void Scene::update()
