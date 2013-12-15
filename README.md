@@ -1,16 +1,19 @@
 LudumDare
 =========
 
-Ludum dare reporisitory
+Gameplay was missing a bit, but I have nice effects all over the screen!
+
+For this jam I didn't have full time to work on the game, as I missed the first 12 hours, but in the end this was a success, even that I didn't get a "full" game out.
+
 
 Ideas / todo
 ============
 
 ## bugs
 
-* ORIGON IS FUCKED UP ON EVERYTHING BUT PLAYER
-* DEATH WHEN HITTING
-* where is the theme?
+* origos are invalid
+* player can't die
+* where is the theme?!?
 * HUD missing
 
 ## todo
