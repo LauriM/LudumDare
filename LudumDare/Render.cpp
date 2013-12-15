@@ -12,7 +12,7 @@ bool Render::init()
 
 	spritePlayer.setOrigin(16,16);
 
-	view.zoom(1.8f);
+	view.zoom(2.0f);
 
 	return true;
 }
@@ -51,18 +51,34 @@ void Render::update()
 	window->draw(spritePlayer);
 }
 
+bool Render::getNextStarStatus()
+{
+	++starStatusTick;
+
+	if(starStatusTick > STARSTATUS_PRECACHE_SIZE)
+		starStatusTick = 0;
+
+	return starStatus[starStatusTick];
+}
+
 void Render::background()
 {
 	Vector offset;
+
+	//Reset the star counter.
+	starStatusTick = 0;
 
 	sf::CircleShape shape(3.f);
 	shape.setFillColor(sf::Color::White);
 
 	//level 1j
-	for(int x = 0; x < WORLD_WIDTH; x += 300)
+	for(int x = 0; x < WORLD_WIDTH; x += 250)
 	{
-		for(int y = 0; y < WORLD_HEIGHT; y += 300)
+		for(int y = 0; y < WORLD_HEIGHT; y += 250)
 		{
+			if(getNextStarStatus())
+				continue;
+
 			shape.setPosition(x , y);
 			window->draw(shape);
 		}
@@ -70,30 +86,36 @@ void Render::background()
 
 	//Parlax level 2
 	shape.setRadius(2.f);
-	for(int x = 0; x < WORLD_WIDTH; x += 100)
+	for(int x = 0; x < WORLD_WIDTH; x += 350)
 	{
-		for(int y = 0; y < WORLD_HEIGHT; y += 100)
+		for(int y = 0; y < WORLD_HEIGHT; y += 350)
 		{
+			if(getNextStarStatus())
+				continue;
+
 			offset = scene->getPlayer()->position;
 			offset.x -= WORLD_WIDTH / 2;
 			offset.y -= WORLD_HEIGHT / 2;
 
-			shape.setPosition(x + offset.x * 0.2, y + offset.y * 0.2);
+			shape.setPosition(x + offset.x * 0.4, y + offset.y * 0.4);
 			window->draw(shape);
 		}
 	}
 
 	//Parlax level 3
 	shape.setRadius(1.f);
-	for(int x = 0; x < WORLD_WIDTH; x += 150)
+	for(int x = 0; x < WORLD_WIDTH; x += 550)
 	{
-		for(int y = 0; y < WORLD_HEIGHT; y += 150)
+		for(int y = 0; y < WORLD_HEIGHT; y += 550)
 		{
+			if(getNextStarStatus())
+				continue;
+
 			offset = scene->getPlayer()->position;
 			offset.x -= WORLD_WIDTH / 2;
 			offset.y -= WORLD_HEIGHT / 2;
 
-			shape.setPosition(x + offset.x * 0.1, y + offset.y * 0.1);
+			shape.setPosition(x + offset.x * 0.2, y + offset.y * 0.2);
 			window->draw(shape);
 		}
 	}

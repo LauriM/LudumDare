@@ -19,3 +19,9 @@ Ideas / todo
 * planets have invalid origos
 * new ship model and transparency
 * SEPARATE LOGIC FROM FPS
+
+## Gameplay
+
+* collect 10 items from the level
+* there is also fuel on the level
+* limited fuel, use physics to get away

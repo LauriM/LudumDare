@@ -31,6 +31,8 @@ int main(){
 	bool controlA = false;
 	bool controlD = false;
 
+	window.setFramerateLimit(60);
+
 	while( window.isOpen() )
 	{
 		sf::Event event;

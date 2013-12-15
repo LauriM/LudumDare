@@ -8,6 +8,8 @@
 #include "Scene.h"
 #include "ParticleSystem.h"
 
+#define STARSTATUS_PRECACHE_SIZE 1000
+
 class Render 
 {
 public:
@@ -17,6 +19,19 @@ public:
 	{
 		view = sf::View(sf::FloatRect(0,0,SCREEN_WIDTH,SCREEN_HEIGHT));
 		window->setView(view);
+
+		for(int i = 0; i < STARSTATUS_PRECACHE_SIZE; ++i)
+		{
+			if(randomRange(0,1)){
+				starStatus[i] = true;
+			}
+			else
+			{
+				starStatus[i] = false;
+			}
+		}
+
+		starStatusTick = 0;
 	}
 
 	bool init();
@@ -24,6 +39,11 @@ public:
 	void update();
 
 private:
+	bool starStatus[STARSTATUS_PRECACHE_SIZE];
+	int starStatusTick;
+
+	bool getNextStarStatus();
+
 	sf::View view;
 	sf::RenderWindow *window;
 
