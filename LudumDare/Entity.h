@@ -15,6 +15,11 @@ enum EntityType
 class Entity
 {
 public:
+	Entity()
+		:position(Vector(0,0))
+		,type(ENTITYTYPE_PICKUP)
+	{}
+
 	Entity(Vector position, EntityType type)
 		:position(position)
 		,type(type)

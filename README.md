@@ -15,6 +15,7 @@ Ideas / todo
 * no planets on top of each other
 * planets have invalid origos ( position.x/y + radius should help)
 * new ship model and transparency
+* corruption on memory! (entities)
 
 ## Gameplay
 

@@ -47,6 +47,20 @@ void Render::update()
 		window->draw(shape);
 	}
 
+	EntityList *entities = scene->getEntities();
+
+	shape.setRadius(30);
+
+	for(int i = 0; i < entities->size(); ++i)
+	{
+		shape.setFillColor(sf::Color::Green);
+		shape.setOrigin(15,15);
+		shape.setPosition(entities->at(i)->position.getSfml());
+		//printf("pos: %i,%i\n",entities->at(i)->position.getSfml().x, entities->at(i)->position.getSfml().y);
+
+		window->draw(shape);
+	}
+
 	//Draw the player
 	spritePlayer.setPosition(scene->getPlayer()->position.x,scene->getPlayer()->position.y);
 	spritePlayer.setRotation((scene->getPlayer()->direction.getAngle()) * 180 / PI);

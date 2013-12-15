@@ -23,7 +23,7 @@ public:
 
 		for(int i = 0; i < STARSTATUS_PRECACHE_SIZE; ++i)
 		{
-			if(randomRange(0,1)){
+			if(randomRange(0,1)) {
 				starStatus[i] = true;
 			}
 			else

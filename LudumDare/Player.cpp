@@ -61,8 +61,8 @@ void Player::accelerate()
 	//Move the flame behind the ship
 	Vector pos = position - (direction * 20);
 
-	particleSystem.addParticles(1, 3, pos, direction.getReverse() ,15,10,20,50,100,sf::Color::Red,2,velocity);
-	particleSystem.addParticles(1, 3, pos, direction.getReverse() ,15,10,20,50,100,sf::Color::Yellow,2,velocity);
+	particleSystem.addParticles(1, 3, pos, direction.getReverse() ,15,30,50,50,100,sf::Color::Red,2,velocity);
+	particleSystem.addParticles(1, 3, pos, direction.getReverse() ,15,30,50,50,100,sf::Color::Yellow,2,velocity);
 }
 
 void Player::halt()

@@ -9,14 +9,13 @@ Scene::Scene()
 void Scene::resetScene()
 {
 	int count = PLANET_COUNT;
-
-	Planet *tempPlanet ;
+	bool hit = false;
 
 	while(count > 0)
 	{
 		--count;
 
-		tempPlanet = new Planet( Vector( randomRange(0,WORLD_WIDTH), randomRange(0,WORLD_HEIGHT) ), randomRange(100,250 ) ) ;
+		Planet* tempPlanet = new Planet( Vector( randomRange(0,WORLD_WIDTH), randomRange(0,WORLD_HEIGHT) ), randomRange(100,250 ) ) ;
 
 		//Check that the planet is not on top of other planes
 		for( int i = 0; i < planets.size(); ++i)
@@ -30,20 +29,36 @@ void Scene::resetScene()
 			if(dist < 0){
 				//Hit! break from the loop
 				printf("planet collision!");
-				delete tempPlanet;  //Planet is not used.
-				continue;
+				hit = true;
 			}
 		}
 
-		planets.push_back(tempPlanet);
+		if(hit)
+		{
+			delete tempPlanet;
+		}
+		else
+		{
+			planets.push_back(tempPlanet);
+		}
+
+		hit = false;
 	}
 
 	//Then add the pickups.
 	count = SCENE_PICKUP_COUNT; //10 pickups
 
+	hit = false;
+
 	while( count > 0 )
 	{
-		Entity *ent = new Entity(Vector( randomRange(0,WORLD_WIDTH), randomRange(0,WORLD_HEIGHT)), ENTITYTYPE_PICKUP);
+		//Entity *ent = new Entity(Vector( randomRange(0,WORLD_WIDTH), randomRange(0,WORLD_HEIGHT)), ENTITYTYPE_PICKUP);
+		Entity *ent = new Entity();
+
+		ent->position = Vector( (float)randomRange(0,WORLD_WIDTH), (float)randomRange(0,WORLD_HEIGHT));
+		ent->type = ENTITYTYPE_PICKUP;
+
+		printf("|%f %f|\n",ent->position.x,ent->position.y);
 
 		//Check that the pickup is not inside a planet
 		for( int i = 0; i < planets.size(); ++i)
@@ -57,20 +72,27 @@ void Scene::resetScene()
 			if(dist < 0){
 				//Hit! break from the loop
 				printf("planet collision!");
-				delete ent;  //entity is not used
-				break;
+				hit = true;
 			}
 		}
 
-		entities.push_back(ent);
+		if(hit)
+		{
+			delete ent;
+		}
+		else
+		{
+			entities.push_back(ent);
+		}
 
 		--count;
+		hit = false;
 	}
 
 	printf("entities.size() : %i \n", entities.size());
 
 	count = SCENE_FUEL_COUNT; //5 fuel
-
+	/*
 	while( count > 0 )
 	{
 		Entity *ent = new Entity(Vector( randomRange(0,WORLD_WIDTH), randomRange(0,WORLD_HEIGHT)), ENTITYTYPE_FUEL);
@@ -96,6 +118,7 @@ void Scene::resetScene()
 
 		--count;
 	}
+	*/
 
 	printf("entities.size() : %i \n", entities.size());
 }
@@ -147,7 +170,8 @@ void Scene::update()
 
 		if(dist < 10)
 		{
-			printf("PICKUP!");
+			//printf("PICKUP!");
+			printf("dist: %i", dist);
 		}
 	}
 
