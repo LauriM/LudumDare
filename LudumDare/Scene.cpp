@@ -11,11 +11,13 @@ void Scene::resetScene()
 	int count = PLANET_COUNT;
 	bool hit = false;
 
+	Planet* tempPlanet;
+
 	while(count > 0)
 	{
 		--count;
 
-		Planet* tempPlanet = new Planet( Vector( randomRange(0,WORLD_WIDTH), randomRange(0,WORLD_HEIGHT) ), randomRange(100,250 ) ) ;
+		tempPlanet = new Planet( Vector( randomRange(0,WORLD_WIDTH), randomRange(0,WORLD_HEIGHT) ), randomRange(100,250 ) ) ;
 
 		//Check that the planet is not on top of other planes
 		for( int i = 0; i < planets.size(); ++i)
@@ -51,10 +53,12 @@ void Scene::resetScene()
 
 	hit = false;
 
+	Entity *ent;
+
 	while( count > 0 )
 	{
 		//Entity *ent = new Entity(Vector( randomRange(0,WORLD_WIDTH), randomRange(0,WORLD_HEIGHT)), ENTITYTYPE_PICKUP);
-		Entity *ent = new Entity();
+		ent = new Entity();
 
 		ent->position = Vector( (float)randomRange(0,WORLD_WIDTH), (float)randomRange(0,WORLD_HEIGHT));
 		ent->type = ENTITYTYPE_PICKUP;
