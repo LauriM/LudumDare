@@ -72,7 +72,7 @@ void Scene::resetScene()
 			float dist = abs ( vec.getLenght() );
 
 			dist -= planets[i]->size;
-			ent -= 150; //Some space between the planets and pickups...
+			dist -= 150; //Some space between the planets and pickups...
 
 			if(dist < 0){
 				//Hit! break from the loop
