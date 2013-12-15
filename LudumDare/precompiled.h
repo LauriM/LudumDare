@@ -17,7 +17,7 @@ int randomRange(int min,int max);
 #define WORLD_HEIGHT 5001
 
 //#define PLANET_COUNT randomRange(5,8);
-#define PLANET_COUNT randomRange(2,2);
+#define PLANET_COUNT randomRange(5,8);
 
 #define GRAVITY_MULTIPLIER 4
 
