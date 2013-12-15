@@ -78,6 +78,9 @@ private:
 
 	sf::Texture texturePlayer;
 	sf::Sprite spritePlayer;
+
+	sf::Texture textureFuel;
+	sf::Sprite spriteFuel;
 };
 
 #endif

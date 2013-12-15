@@ -9,6 +9,7 @@ bool Render::init()
 	printf("loading resources...\n");
 
 	LOADTEXTURE(texturePlayer, spritePlayer, "../gfx/ship.png");
+	LOADTEXTURE(textureFuel, spriteFuel, "../gfx/fuel.png");
 
 	spritePlayer.setOrigin(16,16);
 
@@ -58,7 +59,11 @@ void Render::update()
 		shape.setPosition(entities->at(i)->position.getSfml());
 		//printf("pos: %i,%i\n",entities->at(i)->position.getSfml().x, entities->at(i)->position.getSfml().y);
 
-		window->draw(shape);
+		//window->draw(shape);
+
+		spriteFuel.setPosition(entities->at(i)->position.getSfml());
+
+		window->draw(spriteFuel);
 	}
 
 	//Draw the player

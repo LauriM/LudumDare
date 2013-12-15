@@ -6,6 +6,10 @@ Ludum dare reporisitory
 Ideas / todo
 ============
 
+## bugs
+
+* ORIGON IS FUCKED UP ON EVERYTHING BUT PLAYER
+
 ## ideas
 
 * fuel based gameplay ?
