@@ -10,11 +10,26 @@ Scene::Scene()
 
 	while(count > 0)
 	{
+		--count;
+
 		tempPlanet = new Planet( Vector( randomRange(0,WORLD_WIDTH), randomRange(0,WORLD_HEIGHT) ), randomRange(50,250 ) ) ;
 
-		planets.push_back(tempPlanet);
+		//Check that the planet is not on top of other planes
+		for( int i = 0; i < planets.size(); ++i)
+		{
+			Vector vec = tempPlanet->position - planets[i]->position;
+			float dist = abs ( vec.getLenght() );
 
-		--count;
+			dist -= planets[i]->size;
+			dist -= tempPlanet->size;
+
+			if(dist < 0){
+				//Hit! break from the loop
+				continue;
+			}
+		}
+
+		planets.push_back(tempPlanet);
 	}
 }
 
