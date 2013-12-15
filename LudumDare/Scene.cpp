@@ -176,10 +176,15 @@ void Scene::update()
 		Vector vec = entities[i]->position - player.position;
 		int dist = abs( vec.getLenght() );
 
-		if(dist < 10)
+		if(dist < 40)
 		{
 			//printf("PICKUP!");
 			printf("dist: %i", dist);
+			particleSystem.addParticles(200, 200, entities[i]->position , Vector(0,1) ,360,30,50,50,100,sf::Color::Green,4);
+
+			delete entities[i];
+			entities.erase(entities.begin() + i);
+			--i;
 		}
 	}
 
