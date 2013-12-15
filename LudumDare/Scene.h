@@ -41,6 +41,11 @@ public:
 	{
 		return &planets;
 	}
+
+	EntityList* getEntities()
+	{
+		return &entities;
+	}
 };
 
 #endif
