@@ -10,15 +10,12 @@ Ideas / todo
 ## ideas
 
 * fuel based gameplay ?
-* high acceleration particle TTL ?
-* some "random" for the stars?
 
 ## todo
 
 * no planets on top of each other
-* planets have invalid origos
+* planets have invalid origos ( position.x/y + radius should help)
 * new ship model and transparency
-* SEPARATE LOGIC FROM FPS
 
 ## Gameplay
 
