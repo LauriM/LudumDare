@@ -26,3 +26,5 @@ int randomRange(int min,int max);
 
 #define SCENE_PICKUP_COUNT 10
 #define SCENE_FUEL_COUNT 5
+
+#define FUEL_PER_CANISTER 100

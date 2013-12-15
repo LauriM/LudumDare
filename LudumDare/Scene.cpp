@@ -87,11 +87,8 @@ void Scene::resetScene()
 		}
 		else
 		{
-			printf("|%f %f|\n",ent->position.x,ent->position.y);
 			entities.push_back(ent);
-			printf("|%f %f|\n",ent->position.x,ent->position.y);
 		}
-		printf("|%f %f|\n",ent->position.x,ent->position.y);
 
 		--count;
 		hit = false;
@@ -100,10 +97,16 @@ void Scene::resetScene()
 	printf("entities.size() : %i \n", entities.size());
 
 	count = SCENE_FUEL_COUNT; //5 fuel
-	/*
+
 	while( count > 0 )
 	{
-		Entity *ent = new Entity(Vector( randomRange(0,WORLD_WIDTH), randomRange(0,WORLD_HEIGHT)), ENTITYTYPE_FUEL);
+		//Entity *ent = new Entity(Vector( randomRange(0,WORLD_WIDTH), randomRange(0,WORLD_HEIGHT)), ENTITYTYPE_PICKUP);
+		ent = new Entity();
+
+		ent->position = Vector( (float)randomRange(0,WORLD_WIDTH), (float)randomRange(0,WORLD_HEIGHT));
+		ent->type = ENTITYTYPE_FUEL;
+
+		printf("|%f %f|\n",ent->position.x,ent->position.y);
 
 		//Check that the pickup is not inside a planet
 		for( int i = 0; i < planets.size(); ++i)
@@ -112,21 +115,27 @@ void Scene::resetScene()
 			float dist = abs ( vec.getLenght() );
 
 			dist -= planets[i]->size;
-			ent -= 150; //Some space between the planets and pickups...
+			dist -= 150; //Some space between the planets and pickups...
 
 			if(dist < 0){
 				//Hit! break from the loop
 				printf("planet collision!");
-				delete ent;  //entity is not used
-				break;
+				hit = true;
 			}
 		}
 
-		entities.push_back(ent);
+		if(hit)
+		{
+			delete ent;
+		}
+		else
+		{
+			entities.push_back(ent);
+		}
 
 		--count;
+		hit = false;
 	}
-	*/
 
 	printf("entities.size() : %i \n", entities.size());
 }
@@ -176,11 +185,22 @@ void Scene::update()
 		Vector vec = entities[i]->position - player.position;
 		int dist = abs( vec.getLenght() );
 
-		if(dist < 40)
+		if(dist < 65)
 		{
 			//printf("PICKUP!");
 			printf("dist: %i", dist);
-			particleSystem.addParticles(200, 200, entities[i]->position , Vector(0,1) ,360,30,50,50,100,sf::Color::Green,4);
+
+			if(entities[i]->type == ENTITYTYPE_PICKUP)
+			{
+				particleSystem.addParticles(200, 200, entities[i]->position , Vector(0,1) ,360,50,80,50,100,sf::Color::Green,4);
+				++player.points;
+			}
+
+			if(entities[i]->type == ENTITYTYPE_FUEL)
+			{
+				particleSystem.addParticles(200, 200, entities[i]->position , Vector(0,1) ,360,30,50,50,100,sf::Color::Red,4);
+				player.fuel += FUEL_PER_CANISTER;
+			}
 
 			delete entities[i];
 			entities.erase(entities.begin() + i);

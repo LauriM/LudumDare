@@ -11,6 +11,9 @@ public:
 	Vector direction;
 	int hp;
 
+	int points;
+	int fuel;
+
 	int isZooming;
 
 	Player()
@@ -19,6 +22,8 @@ public:
 		,direction(Vector(-0.5,-0.1))
 		,hp(100)
 		,isZooming(false)
+		,fuel(500)
+		,points(0)
 	{}
 
 	void update();
