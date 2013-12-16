@@ -16,19 +16,16 @@ Controls
 Ideas / todo
 ============
 
-## bugs
+## Final fixlist to "release"
 
-* origos are invalid
 * player can't die
 * where is the theme?!?
 * HUD missing
+* Endgame scenarios / restart
 
-## todo
+## bugs
 
-* no planets on top of each other
 * planets have invalid origos ( position.x/y + radius should help)
-* new ship model and transparency
-* corruption on memory! (entities)
 
 ## Gameplay
 
