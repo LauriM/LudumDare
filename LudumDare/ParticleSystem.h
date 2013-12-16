@@ -33,6 +33,8 @@ public:
 	void addParticles(int min, int max, Vector position, Vector direction, int spread, int minSpeed, int maxSpeed, int minTTL, int maxTTL, sf::Color color,int size,Vector baseVelocity);
 
 	void render(sf::RenderWindow* window); //handles also updating
+
+	void empty();
 };
 
 #endif

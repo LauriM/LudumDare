@@ -59,6 +59,9 @@ int main(){
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
 				scene->getPlayer()->halt();
 
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+				scene->resetScene();
+
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 			{
 				if (zoomStatus == false)

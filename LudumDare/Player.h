@@ -20,7 +20,7 @@ public:
 		:position(Vector(10,10))
 		,velocity(Vector(1,1))
 		,direction(Vector(-0.5,-0.1))
-		,hp(50)
+		,hp(25)
 		,isZooming(false)
 		,fuel(500)
 		,points(0)

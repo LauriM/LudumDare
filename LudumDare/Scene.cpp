@@ -8,6 +8,9 @@ Scene::Scene()
 
 void Scene::resetScene()
 {
+	//Reset player
+	player = Player();
+
 	int count = PLANET_COUNT;
 	bool hit = false;
 
@@ -163,7 +166,14 @@ void Scene::update()
 			if (player.hp > 0) //Don't kill the player if he is dead already.
 			{
 				--player.hp;
-				particleSystem.addParticles(10, 30, player.position, Vector(0, 1), 360, 5, 10, 100, 200 / 2, sf::Color::White, 2);
+				particleSystem.addParticles(5, 10, player.position, Vector(0, 1), 360, 5, 10, 100, 200 / 2, sf::Color::White, 2);
+
+				if (player.hp < 1)
+				{
+					//Player died on this frame! BETTER EXPLOSIONS!
+					particleSystem.empty();
+					particleSystem.addParticles(500, 500, player.position, Vector(0,1), 360, 5, 10, 20000, 20000 / 2, sf::Color::White, 2);
+				}
 			}
 		}
 

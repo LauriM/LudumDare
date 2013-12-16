@@ -81,3 +81,11 @@ void ParticleSystem::render(sf::RenderWindow* window)
 	}
 
 }
+
+void ParticleSystem::empty()
+{
+	for (int i = 0; i < PARTICLE_MAX_COUNT; ++i)
+	{
+		particles[i].ttl = -1;
+	}
+}
