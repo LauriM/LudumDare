@@ -67,6 +67,10 @@ void Render::update()
 	}
 
 	//Draw the player
+
+	if (scene->getPlayer()->hp < 1)
+		return;  //player is dead, don't render it.
+
 	spritePlayer.setPosition(scene->getPlayer()->position.x,scene->getPlayer()->position.y);
 	spritePlayer.setRotation((scene->getPlayer()->direction.getAngle()) * 180 / PI);
 

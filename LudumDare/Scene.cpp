@@ -158,9 +158,14 @@ void Scene::update()
 		//Disabled because it would "eat" all the avaivable slots with current setup.
 		//#######################
 
-		//TODO: Kill player if it collides with a planet, fix the hit detection! the origin is invalid
-		if(dist < radius)
-			printf("KILL");
+		if (dist < radius)
+		{
+			if (player.hp > 0) //Don't kill the player if he is dead already.
+			{
+				--player.hp;
+				particleSystem.addParticles(10, 30, player.position, Vector(0, 1), 360, 5, 10, 100, 200 / 2, sf::Color::White, 2);
+			}
+		}
 
 		//if distance is larger than the size, no gravity applies
 		if(dist / GRAVITY_MULTIPLIER > radius)
@@ -208,6 +213,8 @@ void Scene::update()
 		}
 	}
 
-	//get player input, apply velocity
-	player.update();
+	//Only update player if hp is positive
+	if (player.hp > 0){
+		player.update();
+	}
 }

@@ -45,36 +45,39 @@ int main(){
 				window.close();
 		}
 
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-			scene->getPlayer()->accelerate();
-
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-			scene->getPlayer()->rotateLeft();
-
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-			scene->getPlayer()->rotateRight();
-
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-			scene->getPlayer()->halt();
-
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		if (scene->getPlayer()->hp > 0)
 		{
-			if(zoomStatus == false)
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+				scene->getPlayer()->accelerate();
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+				scene->getPlayer()->rotateLeft();
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+				scene->getPlayer()->rotateRight();
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+				scene->getPlayer()->halt();
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 			{
-				//zoom
-				render->getView()->zoom(2.0);
-				zoomStatus = true;
+				if (zoomStatus == false)
+				{
+					//zoom
+					render->getView()->zoom(2.0);
+					zoomStatus = true;
+				}
 			}
-		}
-		else
-		{
-			if(zoomStatus == true)
+			else
 			{
-				//unzoom
-				render->getView()->zoom(0.5);
-				zoomStatus = false;
+				if (zoomStatus == true)
+				{
+					//unzoom
+					render->getView()->zoom(0.5);
+					zoomStatus = false;
+				}
 			}
-		}
+		}//is player alive check end
 
 		scene->update();
 
