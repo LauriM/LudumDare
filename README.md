@@ -21,14 +21,10 @@ Ideas / todo
 * player can't die
 * where is the theme?!?
 * HUD missing
+* Fuel
 * Endgame scenarios / restart
+* New level with even more planets!
 
 ## bugs
 
 * planets have invalid origos ( position.x/y + radius should help)
-
-## Gameplay
-
-* collect 10 items from the level
-* there is also fuel on the level
-* limited fuel, use physics to get away
