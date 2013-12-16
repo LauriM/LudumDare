@@ -20,9 +20,9 @@ public:
 		:position(Vector(10,10))
 		,velocity(Vector(1,1))
 		,direction(Vector(-0.5,-0.1))
-		,hp(25)
+		,hp(PLAYER_START_HP)
 		,isZooming(false)
-		,fuel(500)
+		,fuel(PLAYER_START_FUEL)
 		,points(0)
 	{}
 

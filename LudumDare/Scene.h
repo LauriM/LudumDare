@@ -23,6 +23,7 @@ private:
 	PlanetList planets;
 	EntityList entities;
 
+	int level;
 public:
 	Scene();
 
@@ -45,6 +46,16 @@ public:
 	EntityList* getEntities()
 	{
 		return &entities;
+	}
+
+	int getLevel()
+	{
+		return level;
+	}
+
+	void resetLevel()
+	{
+		level = 0;
 	}
 };
 

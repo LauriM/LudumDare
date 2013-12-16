@@ -45,6 +45,13 @@ int main(){
 				window.close();
 		}
 
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+		{
+			scene->resetLevel();
+			scene->resetScene();
+			continue; //skips the rest of the loop, It would cause a memory leak as stuff is missing from the memory after reset.
+		}
+
 		if (scene->getPlayer()->hp > 0)
 		{
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
@@ -58,9 +65,6 @@ int main(){
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
 				scene->getPlayer()->halt();
-
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
-				scene->resetScene();
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 			{

@@ -1,6 +1,7 @@
 #include "Scene.h"
 
 Scene::Scene()
+:level(0)
 {
 	//Generate the world on launch
 	resetScene();
@@ -8,10 +9,30 @@ Scene::Scene()
 
 void Scene::resetScene()
 {
+	//Empty the state data
+	particleSystem.empty();
+
+	/*
+	//TODO: leaks memory here, because stuff is not removed!
+
+	for (int i = 0; i < entities.size(); i++)
+	{
+		delete entities[i];
+	}
+
+	for (int i = 0; i < planets.size() - 1; ++i)
+	{
+		delete planets[i];
+	}
+	*/
+
+	entities.clear();
+	planets.clear();
+
 	//Reset player
 	player = Player();
 
-	int count = PLANET_COUNT;
+	int count = 3 + (level * 2);
 	bool hit = false;
 
 	Planet* tempPlanet;
@@ -66,7 +87,7 @@ void Scene::resetScene()
 		ent->position = Vector( (float)randomRange(0,WORLD_WIDTH), (float)randomRange(0,WORLD_HEIGHT));
 		ent->type = ENTITYTYPE_PICKUP;
 
-		printf("|%f %f|\n",ent->position.x,ent->position.y);
+//		printf("|%f %f|\n",ent->position.x,ent->position.y);
 
 		//Check that the pickup is not inside a planet
 		for( int i = 0; i < planets.size(); ++i)
@@ -79,7 +100,7 @@ void Scene::resetScene()
 
 			if(dist < 0){
 				//Hit! break from the loop
-				printf("planet collision!");
+				//printf("planet collision!");
 				hit = true;
 			}
 		}
@@ -109,7 +130,7 @@ void Scene::resetScene()
 		ent->position = Vector( (float)randomRange(0,WORLD_WIDTH), (float)randomRange(0,WORLD_HEIGHT));
 		ent->type = ENTITYTYPE_FUEL;
 
-		printf("|%f %f|\n",ent->position.x,ent->position.y);
+//		printf("|%f %f|\n",ent->position.x,ent->position.y);
 
 		//Check that the pickup is not inside a planet
 		for( int i = 0; i < planets.size(); ++i)
@@ -173,6 +194,8 @@ void Scene::update()
 					//Player died on this frame! BETTER EXPLOSIONS!
 					particleSystem.empty();
 					particleSystem.addParticles(500, 500, player.position, Vector(0,1), 360, 5, 10, 20000, 20000 / 2, sf::Color::White, 2);
+
+					level = 0;
 				}
 			}
 		}
@@ -185,7 +208,7 @@ void Scene::update()
 
 		float str = dist / (1000000.f / 0.8);
 
-		printf("# %f #\n",str);
+		//printf("# %f #\n",str);
 		if(str < 0)
 			continue;
 
@@ -226,5 +249,21 @@ void Scene::update()
 	//Only update player if hp is positive
 	if (player.hp > 0){
 		player.update();
+	}
+
+	//If player wins! Reset the level and move to the next one
+
+	printf("%i\n", player.points);
+	if (player.points > 7)
+	{
+		//This may be bit reduntant as resetScene should handle these
+		player.points = 0;
+		player.hp = PLAYER_START_HP;
+		player.fuel = PLAYER_START_FUEL;
+		
+		//Next difficulty!
+		++level;
+
+		resetScene();
 	}
 }
