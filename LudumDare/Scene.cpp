@@ -12,19 +12,15 @@ void Scene::resetScene()
 	//Empty the state data
 	particleSystem.empty();
 
-	/*
-	//TODO: leaks memory here, because stuff is not removed!
-
-	for (int i = 0; i < entities.size(); i++)
+	for (int i = 0; i < entities.size(); ++i) 
 	{
 		delete entities[i];
 	}
 
-	for (int i = 0; i < planets.size() - 1; ++i)
+	for (int i = 0; i < planets.size(); ++i)
 	{
 		delete planets[i];
 	}
-	*/
 
 	entities.clear();
 	planets.clear();
