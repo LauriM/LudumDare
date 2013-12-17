@@ -85,6 +85,9 @@ private:
 
 	sf::Texture textureFuel;
 	sf::Sprite spriteFuel;
+
+	sf::Texture texturePickup;
+	sf::Sprite spritePickup;
 };
 
 #endif
