@@ -13,6 +13,12 @@ bool Render::init()
 
 	spritePlayer.setOrigin(16,16);
 
+	if (!font.loadFromFile("../gfx/arial.ttf"))
+	{
+		printf("Cannot load the font!");
+		return false;
+	}
+
 	view.zoom(3.0f);
 
 	return true;
@@ -20,6 +26,7 @@ bool Render::init()
 
 void Render::update()
 {
+	window->setView(view);
 	bounds();
 	background();
 
@@ -68,14 +75,40 @@ void Render::update()
 
 	//Draw the player
 
-	if (scene->getPlayer()->hp < 1)
-		return;  //player is dead, don't render it.
+	if (scene->getPlayer()->hp > 1)
+	{
 
-	spritePlayer.setPosition(scene->getPlayer()->position.x,scene->getPlayer()->position.y);
-	spritePlayer.setRotation((scene->getPlayer()->direction.getAngle()) * 180 / PI);
+		spritePlayer.setPosition(scene->getPlayer()->position.x, scene->getPlayer()->position.y);
+		spritePlayer.setRotation((scene->getPlayer()->direction.getAngle()) * 180 / PI);
+
+		window->draw(spritePlayer);
+	}
+
+	//Always set the view so the rotation updates
+
+	//Draw the HUD
+	window->setView(hudView);
+
+	sf::Text text;
+
+	text.setFont(font);
+	text.setCharacterSize(25);
+	text.setColor(sf::Color::White);
+	Vector pos;
+
+	text.setString(std::string("Points: ") + std::to_string((long double)scene->getPlayer()->points) );
+	text.setPosition(sf::Vector2f(0, 0));
+	window->draw(text);
+
+	text.setString(std::string("Fuel: ") + std::to_string((long double)scene->getPlayer()->fuel));
+	text.setPosition(sf::Vector2f(0, 30));
+	window->draw(text);
+
+	text.setString(std::string("HP: ") + std::to_string((long double)scene->getPlayer()->hp));
+	text.setPosition(sf::Vector2f(0, 60));
+	window->draw(text);
 
 	window->setView(view);
-	window->draw(spritePlayer);
 }
 
 bool Render::getNextStarStatus()

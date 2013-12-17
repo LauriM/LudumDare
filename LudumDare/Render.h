@@ -16,6 +16,7 @@ public:
 	Render(sf::RenderWindow *window,Scene *scene)
 		:window(window)
 		,scene(scene)
+		, hudView(sf::View())
 		,zoomStatus(false)
 	{
 		view = sf::View(sf::FloatRect(0,0,SCREEN_WIDTH,SCREEN_HEIGHT));
@@ -66,6 +67,7 @@ private:
 	bool getNextStarStatus();
 
 	sf::View view;
+	sf::View hudView;
 	sf::RenderWindow *window;
 
 	Scene *scene;
@@ -75,6 +77,8 @@ private:
 	void background();
 
 	// Files to be loaded
+
+	sf::Font font;
 
 	sf::Texture texturePlayer;
 	sf::Sprite spritePlayer;

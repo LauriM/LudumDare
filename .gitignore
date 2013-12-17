@@ -24,3 +24,5 @@ Debug/
 Release/
 
 *.sdf
+*.psess
+*.vsp
