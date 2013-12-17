@@ -25,9 +25,9 @@ int randomRange(int min,int max);
 #define PLAYER_ACCEL 0.35
 
 #define PLAYER_START_HP 25
-#define PLAYER_START_FUEL 150
+#define PLAYER_START_FUEL 250
 
 #define SCENE_PICKUP_COUNT 15
 #define SCENE_FUEL_COUNT 5
 
-#define FUEL_PER_CANISTER 100
+#define FUEL_PER_CANISTER 200
