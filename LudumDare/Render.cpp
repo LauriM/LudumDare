@@ -20,7 +20,7 @@ bool Render::init()
 		return false;
 	}
 
-	view.zoom(3.0f);
+	view.zoom(2.5f);
 
 	return true;
 }
@@ -144,9 +144,9 @@ void Render::background()
 	shape.setFillColor(sf::Color::White);
 
 	//level 1j
-	for(int x = 0; x < WORLD_WIDTH; x += 250)
+	for(int x = -1000; x < WORLD_WIDTH + 1000; x += 250)
 	{
-		for(int y = 0; y < WORLD_HEIGHT; y += 250)
+		for(int y = -1000; y < WORLD_HEIGHT + 1000; y += 250)
 		{
 			if(getNextStarStatus())
 				continue;
@@ -158,9 +158,9 @@ void Render::background()
 
 	//Parlax level 2
 	shape.setRadius(2.f);
-	for(int x = 0; x < WORLD_WIDTH; x += 350)
+	for(int x = -1500; x < WORLD_WIDTH + 1500; x += 350)
 	{
-		for(int y = 0; y < WORLD_HEIGHT; y += 350)
+		for(int y = -1500; y < WORLD_HEIGHT + 1500; y += 350)
 		{
 			if(getNextStarStatus())
 				continue;
@@ -176,9 +176,9 @@ void Render::background()
 
 	//Parlax level 3
 	shape.setRadius(1.f);
-	for(int x = 0; x < WORLD_WIDTH; x += 550)
+	for(int x = -2500; x < WORLD_WIDTH + 2500; x += 550)
 	{
-		for(int y = 0; y < WORLD_HEIGHT; y += 550)
+		for(int y = -2500; y < WORLD_HEIGHT + 2500; y += 550)
 		{
 			if(getNextStarStatus())
 				continue;

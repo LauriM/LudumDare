@@ -8,7 +8,7 @@
 #include "Scene.h"
 #include "ParticleSystem.h"
 
-#define STARSTATUS_PRECACHE_SIZE 1024
+#define STARSTATUS_PRECACHE_SIZE 10240
 
 class Render 
 {
