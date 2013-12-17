@@ -249,8 +249,7 @@ void Scene::update()
 
 	//If player wins! Reset the level and move to the next one
 
-	printf("%i\n", player.points);
-	if (player.points > 7)
+	if (player.points > 6)
 	{
 		//This may be bit reduntant as resetScene should handle these
 		player.points = 0;

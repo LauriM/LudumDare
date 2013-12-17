@@ -104,16 +104,20 @@ void Render::update()
 	text.setColor(sf::Color::White);
 	Vector pos;
 
-	text.setString(std::string("Points: ") + std::to_string((long double)scene->getPlayer()->points) );
+	text.setString(std::string("Points: ") + std::to_string((long double)scene->getPlayer()->points) + std::string(" (collect 7)"));
 	text.setPosition(sf::Vector2f(0, 0));
 	window->draw(text);
 
-	text.setString(std::string("Fuel: ") + std::to_string((long double)scene->getPlayer()->fuel));
+	text.setString(std::string("Level: ") + std::to_string((long double)scene->getLevel()));
 	text.setPosition(sf::Vector2f(0, 30));
 	window->draw(text);
 
-	text.setString(std::string("HP: ") + std::to_string((long double)scene->getPlayer()->hp));
+	text.setString(std::string("Fuel: ") + std::to_string((long double)scene->getPlayer()->fuel));
 	text.setPosition(sf::Vector2f(0, 60));
+	window->draw(text);
+
+	text.setString(std::string("HP: ") + std::to_string((long double)scene->getPlayer()->hp));
+	text.setPosition(sf::Vector2f(0, 90));
 	window->draw(text);
 
 	window->setView(view);
