@@ -56,6 +56,11 @@ void Player::zoom()
 
 void Player::accelerate()
 {
+	if (fuel < 0)
+		return;
+
+	--fuel;
+
 	velocity += (direction * PLAYER_ACCEL);
 
 	//Move the flame behind the ship
